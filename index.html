@@ -46,7 +46,7 @@
     <h2>Passing Arguments by Reference</h2>
     <p>การส่งพารามิเตอร์โดยการอ้างอิงช่วยให้ฟังก์ชันสามารถเข้าถึงและแก้ไขค่าของตัวแปรที่ส่งเข้าไปได้</p>
     
-    <p><strong>PHP:</strong> สามารถส่งพารามิเตอร์โดยการอ้างอิงได้โดยใช้สัญลักษณ์ <code>&</code> ในการประกาศพารามิเตอร์</p>
+    <p><strong>PHP:</strong> สามารถส่งพารามิเตอร์ในการ Reference ได้โดยใช้สัญลักษณ์ <code>"&"</code> ตอนประกาศพารามิเตอร์</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>function addFive(&$num) {
@@ -59,7 +59,7 @@ echo $original;  // Output: 15
         </code></pre>
     </div>
     
-    <p><strong>Java:</strong> ส่งพารามิเตอร์โดยการอ้างอิงได้เฉพาะกับออบเจ็กต์ ในขณะที่ประเภทพื้นฐานจะถูกส่งโดยการอ้างอิง</p>
+    <p><strong>Java:</strong> ส่งพารามิเตอร์ด้วย passed by reference จะใช้ได้เฉพาะกับ Object แต่ primitive type ส่งจะต้องใช้แบบ Passed By Value แทน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>public class Example {
@@ -76,7 +76,7 @@ echo $original;  // Output: 15
         </code></pre>
     </div>
 
-    <p><strong>C:</strong> ใช้พอยเตอร์ในการส่งพารามิเตอร์โดยการอ้างอิง</p>
+    <p><strong>C:</strong> ใช้ pointer ในการส่งพารามิเตอร์แบบ passed by reference</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>void addFive(int* num) {
@@ -92,7 +92,7 @@ int main() {
         </code></pre>
     </div>
 
-    <p><strong>Python:</strong> ส่งออบเจ็กต์โดยการอ้างอิงสำหรับทุกประเภท</p>
+    <p><strong>Python:</strong> ส่ง Object โดยการ passed by reference และใช้ได้กับทุก data tpye</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>def add_five(num):
@@ -108,7 +108,7 @@ print(add_five(original))  // Output: 15
     <h2>Variable Number of Arguments</h2>
     <p>สนับสนุนจำนวนพารามิเตอร์ที่แปรผันช่วยให้ฟังก์ชันมีความยืดหยุ่นมากขึ้น</p>
     
-    <p><strong>PHP:</strong> สามารถรับจำนวนพารามิเตอร์ที่แปรผันโดยใช้ <code>...</code></p>
+    <p><strong>PHP:</strong> สามารถรับจำนวนพารามิเตอร์ที่แปรผันโดยใช้ <code>"..."</code></p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>function sum(...$numbers) {
@@ -119,7 +119,7 @@ echo sum(1, 2, 3, 4);  // Output: 10
         </code></pre>
     </div>
     
-    <p><strong>Java:</strong> ใช้ <code>...</code> (varargs) คล้ายกับ PHP</p>
+    <p><strong>Java:</strong> ใช้ <code>"..."</code> แบบเดียวกับ PHP</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>public static int sum(int... numbers) {
@@ -136,7 +136,7 @@ public static void main(String[] args) {
         </code></pre>
     </div>
 
-    <p><strong>C:</strong> ใช้ <code>va_list</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
+    <p><strong>C:</strong> ใช้ <code>"va_list"</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>#include &lt;stdarg.h&gt;
@@ -159,7 +159,7 @@ int main() {
         </code></pre>
     </div>
 
-    <p><strong>Python:</strong> ใช้ <code>*args</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
+    <p><strong>Python:</strong> ใช้ <code>"*args"</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>def sum_all(*numbers):
@@ -174,7 +174,7 @@ print(sum_all(1, 2, 3, 4))  // Output: 10
     <h2>PHP is a Loosely Typed Language</h2>
     <p>PHP เป็นภาษาที่มีการกำหนดประเภทที่หลวม หมายความว่าตัวแปรไม่ต้องถูกประกาศด้วยประเภทและสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
     
-    <p><strong>PHP:</strong> คุณไม่จำเป็นต้องประกาศประเภทตัวแปร และสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
+    <p><strong>PHP:</strong> ไม่จำเป็นต้องประกาศประเภทตัวแปร และสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>$variable = 5;        // Integer
@@ -183,7 +183,7 @@ echo $variable;       // Output: Hello
         </code></pre>
     </div>
     
-    <p><strong>Java:</strong> Java เป็นภาษาที่มีการกำหนดประเภทที่เข้มงวด จำเป็นต้องประกาศประเภทตัวแปร</p>
+    <p><strong>Java:</strong> Java เป็นภาษา Strong typed จึงจำเป็นต้องประกาศประเภทตัวแปร</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>int num = 5;
@@ -191,7 +191,7 @@ num = "Hello";  // Error: Type mismatch
         </code></pre>
     </div>
 
-    <p><strong>C:</strong> C เป็นภาษาที่มีการกำหนดประเภทที่เข้มงวดเช่นกัน</p>
+    <p><strong>C:</strong> C เป็นภาษาที่เป็น strong typed จึงจำเป็นต้องประกาศประเภทตัวแปร</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>int num = 5;
@@ -199,7 +199,7 @@ num = "Hello";  // Error: Type mismatch
         </code></pre>
     </div>
 
-    <p><strong>Python:</strong> Python มีการกำหนดประเภทแบบไดนามิก แต่ยังคงเป็นประเภทที่เข้มงวด</p>
+    <p><strong>Python:</strong> Python มีการกำหนดประเภทแบบ dynamic typed</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>num = 5
