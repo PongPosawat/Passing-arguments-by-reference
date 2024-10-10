@@ -3,177 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Comparison with Java,C and Python</title>
+    <title>การเปรียบเทียบการเขียนโปรแกรม OOP ใน Java, C++, Python</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; }
-        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
-        h2 { color: #333; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .code-block {
+            background-color: #f0f8ff;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            font-family: "Courier New", monospace;
+        }
+        .comparison-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        ul {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Comparison between PHP and Java/C/Python</h1>
+    <h1>การเปรียบเทียบการเขียนโปรแกรม OOP ใน Java, C++, Python</h1>
 
-    <!-- Section 1: Passing Arguments by Reference -->
-    <h2>1. Passing Arguments by Reference</h2>
-    <p><strong>PHP:</strong> In PHP, you can pass arguments by reference using the <code>&</code> symbol, which allows the function to modify the original variable.</p>
-    <pre><code>function addFive(&$num) {
-    $num += 5;
-}
+    <h2>I. ผลรันของโปรแกรมในแต่ละภาษา</h2>
 
-$original = 10;
-addFive($original);
-echo $original;  // Output: 15
-    </code></pre>
-    
-    <p><strong>Java:</strong> Java uses reference passing for objects, but primitive types are passed by value.</p>
-    <pre><code>public class Example {
-    public static void addFive(int num) {
-        num += 5;
-    }
+    <h3>Java</h3>
+    <div class="code-block">
+        // Class Animal<br>
+        class Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public Animal() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("create animal");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public void sound() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("animal makes a sound");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;protected void finalize() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("delete animal");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+        <br>
+        // Class Dog extends Animal<br>
+        class Dog extends Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public Dog() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("dog");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;@Override<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public void sound() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("dog barks");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;protected void finalize() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("delete dog");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br><br>
+        // Main Class<br>
+        public class Main {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal a = new Animal();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dog d = new Dog();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+    </div>
 
-    public static void main(String[] args) {
-        int original = 10;
-        addFive(original);
-        System.out.println(original);  // Output: 10
-    }
-}
-    </code></pre>
+    <h3>C++</h3>
+    <div class="code-block">
+        #include &lt;iostream&gt;<br>
+        using namespace std;<br><br>
+        // Class Animal<br>
+        class Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal() { cout &lt;&lt; "create animal" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual ~Animal() { cout &lt;&lt; "delete animal" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual void sound() { cout &lt;&lt; "animal makes a sound" &lt;&lt; endl; }<br>
+        };<br><br>
+        // Class Dog extends Animal<br>
+        class Dog : public Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dog() { cout &lt;&lt; "dog" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Dog() { cout &lt;&lt; "delete dog" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void sound() override { cout &lt;&lt; "dog barks" &lt;&lt; endl; }<br>
+        };<br><br>
+        // Main function<br>
+        int main() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Animal* a = new Animal();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Dog* d = new Dog();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a->sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;d->sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;delete a;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;delete d;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+        }<br>
+    </div>
 
-    <p><strong>C:</strong> C uses pointers for reference passing.</p>
-    <pre><code>void addFive(int* num) {
-    *num += 5;
-}
+    <h3>Python</h3>
+    <div class="code-block">
+        # Class Animal<br>
+        class Animal:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("create animal")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def sound(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("animal makes a sound")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("delete animal")<br><br>
+        # Class Dog extends Animal<br>
+        class Dog(Animal):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__()<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("dog")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def sound(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("dog barks")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("delete dog")<br><br>
+        # Main function<br>
+        a = Animal()<br>
+        d = Dog()<br>
+        a.sound()<br>
+        d.sound()<br>
+    </div>
 
-int main() {
-    int original = 10;
-    addFive(&original);
-    printf("%d", original);  // Output: 15
-    return 0;
-}
-    </code></pre>
+    <h2>II. แนวคิด OOP และการเปรียบเทียบกับโค้ด</h2>
+    <div class="comparison-box">
+        <h3>Class</h3>
+        <p>Class คือแม่แบบของออบเจ็กต์ ตัวอย่างได้แก่ `Animal`, `Dog`, `Cat`</p>
+    </div>
 
-    <p><strong>Python:</strong> Python passes objects by reference for all types.</p>
-    <pre><code>def add_five(num):
-    return num + 5
+    <div class="comparison-box">
+        <h3>Object, Instance</h3>
+        <p>Object หรือ Instance คือการสร้างตัวตนจาก Class เช่น ออบเจ็กต์ `a`, `d`, และ `c` ที่สร้างจากคลาส `Animal`, `Dog`, และ `Cat` ตามลำดับ</p>
+    </div>
 
-original = 10
-print(add_five(original))  # Output: 15
-    </code></pre>
+    <div class="comparison-box">
+        <h3>Subclass, Derived Class</h3>
+        <p>Subclass คือคลาสที่สืบทอดจากคลาสแม่ เช่น `Dog` และ `Cat` ที่สืบทอดจาก `Animal`</p>
+    </div>
 
-    <!-- Section 2: Variable Number of Arguments -->
-    <h2>2. Variable Number of Arguments</h2>
-    <p><strong>PHP:</strong> You can pass a variable number of arguments using <code>...</code>.</p>
-    <pre><code>function sum(...$numbers) {
-    return array_sum($numbers);
-}
+    <div class="comparison-box">
+        <h3>Message</h3>
+        <p>Message คือการส่งคำสั่งไปยังออบเจ็กต์ เช่น `a.sound()`, `d.sound()`</p>
+    </div>
 
-echo sum(1, 2, 3, 4);  // Output: 10
-    </code></pre>
-    
-    <p><strong>Java:</strong> Similar to PHP, Java uses <code>...</code> (varargs).</p>
-    <pre><code>public static int sum(int... numbers) {
-    int sum = 0;
-    for (int num : numbers) {
-        sum += num;
-    }
-    return sum;
-}
+    <div class="comparison-box">
+        <h3>Inheritance</h3>
+        <p>Inheritance คือการสืบทอดคุณสมบัติจากคลาสแม่ไปยังคลาสลูก เช่น `Dog` และ `Cat` สืบทอดจาก `Animal`</p>
+    </div>
 
-public static void main(String[] args) {
-    System.out.println(sum(1, 2, 3, 4));  // Output: 10
-}
-    </code></pre>
+    <div class="comparison-box">
+        <h3>Polymorphism</h3>
+        <p>Polymorphism คือความสามารถที่ method เดียวกันสามารถทำงานต่างกันใน subclass ต่างๆ เช่น `sound()` ใน `Dog` และ `Cat`</p>
+    </div>
 
-    <p><strong>C:</strong> C uses <code>va_list</code> for variable arguments.</p>
-    <pre><code>#include &lt;stdarg.h&gt;
-
-int sum(int count, ...) {
-    va_list args;
-    va_start(args, count);
-    int result = 0;
-    for (int i = 0; i < count; i++) {
-        result += va_arg(args, int);
-    }
-    va_end(args);
-    return result;
-}
-
-int main() {
-    printf("%d", sum(4, 1, 2, 3, 4));  // Output: 10
-    return 0;
-}
-    </code></pre>
-
-    <p><strong>Python:</strong> Python uses <code>*args</code> for variable arguments.</p>
-    <pre><code>def sum_all(*numbers):
-    return sum(numbers)
-
-print(sum_all(1, 2, 3, 4))  # Output: 10
-    </code></pre>
-
-    <!-- Section 3: PHP is a Loosely Typed Language -->
-    <h2>3. PHP is a Loosely Typed Language</h2>
-    <p><strong>PHP:</strong> In PHP, you do not need to declare the type of variables, and they can change types dynamically.</p>
-    <pre><code>$variable = 5;        // Integer
-$variable = "Hello";  // String
-echo $variable;       // Output: Hello
-    </code></pre>
-    
-    <p><strong>Java:</strong> Java is a strongly typed language, so you must declare variable types.</p>
-    <pre><code>int num = 5;
-num = "Hello";  // Error: incompatible types
-    </code></pre>
-
-    <p><strong>C:</strong> Similar to Java, C is a strongly typed language.</p>
-    <pre><code>int num = 5;
-num = "Hello";  // Error: incompatible types
-    </code></pre>
-
-    <p><strong>Python:</strong> Python is dynamically typed but strongly typed.</p>
-    <pre><code>num = 5
-num = "Hello"
-print(num)  # Output: Hello
-    </code></pre>
-
-    <!-- Section 4: PHP Return Type Declarations -->
-    <h2>4. PHP Return Type Declarations</h2>
-    <p><strong>PHP:</strong> Since PHP 7.0, you can declare return types in function definitions.</p>
-    <pre><code>function addNumbers(int $a, int $b): int {
-    return $a + $b;
-}
-
-echo addNumbers(2, 3);  // Output: 5
-    </code></pre>
-
-    <p><strong>Java:</strong> Java requires return types in all methods.</p>
-    <pre><code>public static int addNumbers(int a, int b) {
-    return a + b;
-}
-
-public static void main(String[] args) {
-    System.out.println(addNumbers(2, 3));  // Output: 5
-}
-    </code></pre>
-
-    <p><strong>C:</strong> C requires return types in all functions.</p>
-    <pre><code>int addNumbers(int a, int b) {
-    return a + b;
-}
-
-int main() {
-    printf("%d", addNumbers(2, 3));  // Output: 5
-    return 0;
-}
-    </code></pre>
-
-    <p><strong>Python:</strong> Python supports return type hints, but they are not enforced.</p>
-    <pre><code>def add_numbers(a: int, b: int) -> int:
-    return a + b
-
-print(add_numbers(2, 3))  # Output: 5
-    </code></pre>
+    <h2>III. Abstract Class</h2>
+    <p>Abstract class คือคลาสที่ไม่สามารถสร้างออบเจ็กต์ได้โดยตรง และมี method ที่ต้อง override ใน subclass ตัวอย่างเช่นการสร้าง abstract class ใน Java, C++, และ Python</p>
 
 </body>
 </html>
