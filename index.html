@@ -58,8 +58,9 @@ addFive($original);
 echo $original;  // Output: 15
         </code></pre>
     </div>
-    
-    <p><strong>Java:</strong> ส่งพารามิเตอร์ด้วย passed by reference จะใช้ได้เฉพาะกับ Object แต่ primitive type ส่งจะต้องใช้แบบ Passed By Value แทน</p>
+    <p>อ้างอิงแหล่งที่มา :</p>
+
+    <p><strong>Java:</strong> ส่งพารามิเตอร์ด้วย passed by reference จะใช้ได้เฉพาะกับ Object แต่ primitive type ส่งจะต้องใช้แบบ passed by value แทน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>public class Example {
@@ -75,6 +76,7 @@ echo $original;  // Output: 15
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>C:</strong> ใช้ pointer ในการส่งพารามิเตอร์แบบ passed by reference</p>
     <div class="code-container">
@@ -91,6 +93,7 @@ int main() {
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> ส่ง Object โดยการ passed by reference และใช้ได้กับทุก data tpye</p>
     <div class="code-container">
@@ -102,6 +105,7 @@ original = 10
 print(add_five(original))  // Output: 15
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
 
@@ -125,6 +129,7 @@ echo $a; // Output: 29
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
     
     <p><strong>Java:</strong> ใช้ <code>"..."</code> แบบเดียวกับ PHP</p>
     <div class="code-container">
@@ -142,6 +147,7 @@ public static void main(String[] args) {
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>C:</strong> ใช้ <code>"va_list"</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
     <div class="code-container">
@@ -165,6 +171,7 @@ int main() {
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> ใช้ <code>"*args"</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
     <div class="code-container">
@@ -175,6 +182,7 @@ int main() {
 print(sum_all(1, 2, 3, 4))  // Output: 10
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
 
@@ -189,6 +197,7 @@ $variable = "Hello";  // String
 echo $variable;       // Output: Hello
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
     
     <p><strong>Java:</strong> Java เป็นภาษา Strong typed จึงจำเป็นต้องประกาศประเภทตัวแปร</p>
     <div class="code-container">
@@ -197,6 +206,7 @@ echo $variable;       // Output: Hello
 num = "Hello";  // Error: Type mismatch
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>C:</strong> C เป็นภาษาที่เป็น strong typed จึงจำเป็นต้องประกาศประเภทตัวแปร</p>
     <div class="code-container">
@@ -205,6 +215,7 @@ num = "Hello";  // Error: Type mismatch
 num = "Hello";  // Error: Type mismatch
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> Python มีการกำหนดประเภทแบบ dynamic typed</p>
     <div class="code-container">
@@ -214,6 +225,7 @@ num = "Hello"
 print(num)  // Output: Hello
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
 
@@ -230,6 +242,7 @@ print(num)  // Output: Hello
 echo add(5, 10);  // Output: 15
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Java:</strong> มีการประกาศประเภทค่าที่คืนโดยใช้ชื่อประเภทก่อนหน้าชื่อฟังก์ชัน</p>
     <div class="code-container">
@@ -243,6 +256,7 @@ public static void main(String[] args) {
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>C:</strong> ต้องระบุประเภทค่าที่คืนในฟังก์ชัน</p>
     <div class="code-container">
@@ -257,6 +271,7 @@ int main() {
 }
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> ประกาศประเภทค่าที่คืนได้ด้วย <code>"->"</code></p>
     <div class="code-container">
@@ -264,9 +279,10 @@ int main() {
         <pre><code>def add(a: int, b: int) -> int:
     return a + b
 
-print(add(5, 10))  # Output: 15
+print(add(5, 10))  // Output: 15
         </code></pre>
     </div>
+    <p>อ้างอิงแหล่งที่มา :</p>
 
 </body>
 </html>
