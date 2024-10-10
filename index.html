@@ -10,15 +10,7 @@
             margin: 0; 
             padding: 20px; 
             background-color: #f0f0f0; 
-        }
-        .content-box {
-            background-color: white;
-            width: 80%;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            text-align: left; /* Align text to the left */
         }
         h2 {
             color: #333;
@@ -51,27 +43,26 @@
 </head>
 <body>
 
-    <div class="content-box">
-        <h2>Passing Arguments by Reference</h2>
-        <p>Passing arguments by reference allows a function to access and modify the value of variables passed to it. In PHP, this is done using the <code>&</code> symbol in the function parameter declaration.</p>
-        
-        <p><strong>PHP:</strong> In PHP, you can pass arguments by reference using the <code>&</code> symbol, allowing the function to modify the original variable.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>function addFive(&$num) {
+    <h2>Passing Arguments by Reference</h2>
+    <p>การส่งพารามิเตอร์โดยการอ้างอิงช่วยให้ฟังก์ชันสามารถเข้าถึงและแก้ไขค่าของตัวแปรที่ส่งเข้าไปได้</p>
+    
+    <p><strong>PHP:</strong> สามารถส่งพารามิเตอร์โดยการอ้างอิงได้โดยใช้สัญลักษณ์ <code>&</code> ในการประกาศพารามิเตอร์</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>function addFive(&$num) {
     $num += 5;
 }
 
 $original = 10;
 addFive($original);
 echo $original;  // Output: 15
-            </code></pre>
-        </div>
-        
-        <p><strong>Java:</strong> In Java, passing by reference is applicable to objects, while primitive types are passed by value.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>public class Example {
+        </code></pre>
+    </div>
+    
+    <p><strong>Java:</strong> ส่งพารามิเตอร์โดยการอ้างอิงได้เฉพาะกับออบเจ็กต์ ในขณะที่ประเภทพื้นฐานจะถูกส่งโดยการอ้างอิง</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>public class Example {
     public static void addFive(int num) {
         num += 5;
     }
@@ -82,13 +73,13 @@ echo $original;  // Output: 15
         System.out.println(original);  // Output: 10
     }
 }
-            </code></pre>
-        </div>
+        </code></pre>
+    </div>
 
-        <p><strong>C:</strong> In C, pointers are used for passing by reference.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>void addFive(int* num) {
+    <p><strong>C:</strong> ใช้พอยเตอร์ในการส่งพารามิเตอร์โดยการอ้างอิง</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>void addFive(int* num) {
     *num += 5;
 }
 
@@ -98,40 +89,38 @@ int main() {
     printf("%d", original);  // Output: 15
     return 0;
 }
-            </code></pre>
-        </div>
+        </code></pre>
+    </div>
 
-        <p><strong>Python:</strong> Python passes objects by reference for all types.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>def add_five(num):
+    <p><strong>Python:</strong> ส่งออบเจ็กต์โดยการอ้างอิงสำหรับทุกประเภท</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>def add_five(num):
     return num + 5
 
 original = 10
 print(add_five(original))  // Output: 15
-            </code></pre>
-        </div>
+        </code></pre>
     </div>
 
-    <div class="content-box">
-        <h2>Variable Number of Arguments</h2>
-        <p>Support for a variable number of arguments allows functions to be more flexible, accepting different amounts of input as needed.</p>
-        
-        <p><strong>PHP:</strong> In PHP, you can accept a variable number of arguments using <code>...</code>.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>function sum(...$numbers) {
+    <h2>Variable Number of Arguments</h2>
+    <p>สนับสนุนจำนวนพารามิเตอร์ที่แปรผันช่วยให้ฟังก์ชันมีความยืดหยุ่นมากขึ้น</p>
+    
+    <p><strong>PHP:</strong> สามารถรับจำนวนพารามิเตอร์ที่แปรผันโดยใช้ <code>...</code></p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>function sum(...$numbers) {
     return array_sum($numbers);
 }
 
 echo sum(1, 2, 3, 4);  // Output: 10
-            </code></pre>
-        </div>
-        
-        <p><strong>Java:</strong> Similar to PHP, Java uses <code>...</code> (varargs).</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>public static int sum(int... numbers) {
+        </code></pre>
+    </div>
+    
+    <p><strong>Java:</strong> ใช้ <code>...</code> (varargs) คล้ายกับ PHP</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>public static int sum(int... numbers) {
     int sum = 0;
     for (int num : numbers) {
         sum += num;
@@ -142,13 +131,13 @@ echo sum(1, 2, 3, 4);  // Output: 10
 public static void main(String[] args) {
     System.out.println(sum(1, 2, 3, 4));  // Output: 10
 }
-            </code></pre>
-        </div>
+        </code></pre>
+    </div>
 
-        <p><strong>C:</strong> In C, you can use <code>va_list</code> for a variable number of arguments.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>#include &lt;stdarg.h&gt;
+    <p><strong>C:</strong> ใช้ <code>va_list</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>#include &lt;stdarg.h&gt;
 
 int sum(int count, ...) {
     va_list args;
@@ -165,110 +154,105 @@ int main() {
     printf("%d", sum(4, 1, 2, 3, 4));  // Output: 10
     return 0;
 }
-            </code></pre>
-        </div>
+        </code></pre>
+    </div>
 
-        <p><strong>Python:</strong> Python uses <code>*args</code> for a variable number of arguments.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>def sum_all(*numbers):
+    <p><strong>Python:</strong> ใช้ <code>*args</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>def sum_all(*numbers):
     return sum(numbers)
 
 print(sum_all(1, 2, 3, 4))  // Output: 10
-            </code></pre>
-        </div>
+        </code></pre>
     </div>
 
-    <div class="content-box">
-        <h2>PHP is a Loosely Typed Language</h2>
-        <p>PHP is a loosely typed language, meaning variables do not have to be declared with a type, and they can change types as needed.</p>
-        
-        <p><strong>PHP:</strong> In PHP, you do not need to declare variable types, and you can change types as desired.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>$variable = 5;        // Integer
+    <h2>PHP is a Loosely Typed Language</h2>
+    <p>PHP เป็นภาษาที่มีการกำหนดประเภทที่หลวม หมายความว่าตัวแปรไม่ต้องถูกประกาศด้วยประเภทและสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
+    
+    <p><strong>PHP:</strong> คุณไม่จำเป็นต้องประกาศประเภทตัวแปร และสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>$variable = 5;        // Integer
 $variable = "Hello";  // String
 echo $variable;       // Output: Hello
-            </code></pre>
-        </div>
-        
-        <p><strong>Java:</strong> Java is a strongly typed language requiring variable type declarations.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>int num = 5;
+        </code></pre>
+    </div>
+    
+    <p><strong>Java:</strong> Java เป็นภาษาที่มีการกำหนดประเภทที่เข้มงวด จำเป็นต้องประกาศประเภทตัวแปร</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>int num = 5;
 num = "Hello";  // Error: Type mismatch
-            </code></pre>
-        </div>
-
-        <p><strong>C:</strong> C is also a strongly typed language.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>int num = 5;
-num = "Hello";  // Error: Type mismatch
-            </code></pre>
-        </div>
-
-        <p><strong>Python:</strong> Python is dynamically typed, but it is still strongly typed.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>num = 5
-num = "Hello"
-print(num)  // Output: Hello
-            </code></pre>
-        </div>
+        </code></pre>
     </div>
 
-    <div class="content-box">
-        <h2>PHP Return Type Declarations</h2>
-        <p>Return type declarations allow us to specify the type of value a function will return, improving code clarity and reducing errors.</p>
-        
-        <p><strong>PHP:</strong> Since PHP 7.0, you can declare return types in functions.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>function addNumbers(int $a, int $b): int {
+    <p><strong>C:</strong> C เป็นภาษาที่มีการกำหนดประเภทที่เข้มงวดเช่นกัน</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>int num = 5;
+num = "Hello";  // Error: Type mismatch
+        </code></pre>
+    </div>
+
+    <p><strong>Python:</strong> Python มีการกำหนดประเภทแบบไดนามิก แต่ยังคงเป็นประเภทที่เข้มงวด</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>num = 5
+num = "Hello"
+print(num)  // Output: Hello
+        </code></pre>
+    </div>
+
+    <h2>PHP Return Type Declarations</h2>
+    <p>การประกาศประเภทค่าที่คืนช่วยให้แน่ใจว่าฟังก์ชันคืนค่าประเภทที่ถูกต้อง</p>
+
+    <p><strong>PHP:</strong> ใช้เพื่อระบุประเภทของค่าที่ฟังก์ชันคืนค่า</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>function add($a, $b): int {
     return $a + $b;
 }
 
-echo addNumbers(2, 3);  // Output: 5
-            </code></pre>
-        </div>
+echo add(5, 10);  // Output: 15
+        </code></pre>
+    </div>
 
-        <p><strong>Java:</strong> Java requires return type declarations for every method.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>public static int addNumbers(int a, int b) {
+    <p><strong>Java:</strong> ประกาศประเภทค่าที่คืนในฟังก์ชัน</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>public static int add(int a, int b) {
     return a + b;
 }
 
 public static void main(String[] args) {
-    System.out.println(addNumbers(2, 3));  // Output: 5
+    System.out.println(add(5, 10));  // Output: 15
 }
-            </code></pre>
-        </div>
+        </code></pre>
+    </div>
 
-        <p><strong>C:</strong> C requires return type declarations for every function.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>int addNumbers(int a, int b) {
+    <p><strong>C:</strong> ประกาศประเภทค่าที่คืนในฟังก์ชัน</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>int add(int a, int b) {
     return a + b;
 }
 
 int main() {
-    printf("%d", addNumbers(2, 3));  // Output: 5
+    printf("%d", add(5, 10));  // Output: 15
     return 0;
 }
-            </code></pre>
-        </div>
+        </code></pre>
+    </div>
 
-        <p><strong>Python:</strong> Python supports type hints for return types but does not enforce them strictly.</p>
-        <div class="code-container">
-            <span class="example-label">Example Code:</span>
-            <pre><code>def add_numbers(a: int, b: int) -> int:
+    <p><strong>Python:</strong> สามารถระบุประเภทค่าที่คืน แต่ไม่บังคับ</p>
+    <div class="code-container">
+        <span class="example-label">Example Code:</span>
+        <pre><code>def add(a: int, b: int) -> int:
     return a + b
 
-print(add_numbers(2, 3))  // Output: 5
-            </code></pre>
-        </div>
+print(add(5, 10))  // Output: 15
+        </code></pre>
     </div>
 
 </body>
