@@ -38,12 +38,17 @@
             border-radius: 5px; 
             overflow-x: auto; 
         }
+        p {
+            margin: 0 0 10px;
+        }
     </style>
 </head>
 <body>
 
     <div class="content-box">
         <h2>Passing Arguments by Reference</h2>
+        <p>การส่งอาร์กิวเมนต์โดยอ้างอิงคือกระบวนการที่ฟังก์ชันสามารถเข้าถึงและปรับเปลี่ยนค่าของตัวแปรต้นฉบับที่ส่งเข้าไปได้ โดยในภาษา PHP เราสามารถทำได้โดยการใช้สัญลักษณ์ <code>&</code> ในการประกาศพารามิเตอร์ของฟังก์ชัน</p>
+        
         <p><strong>PHP:</strong> In PHP, you can pass arguments by reference using the <code>&</code> symbol, which allows the function to modify the original variable.</p>
         <pre><code>function addFive(&$num) {
     $num += 5;
@@ -92,6 +97,8 @@ print(add_five(original))  // Output: 15
 
     <div class="content-box">
         <h2>Variable Number of Arguments</h2>
+        <p>จำนวนอาร์กิวเมนต์ที่สามารถส่งให้ฟังก์ชันอาจแตกต่างกันไปในแต่ละครั้ง การรองรับจำนวนอาร์กิวเมนต์ที่ไม่แน่นอนนี้ช่วยให้ฟังก์ชันมีความยืดหยุ่นมากขึ้น โดยสามารถรับค่าที่แตกต่างกันได้ตามที่ต้องการ</p>
+        
         <p><strong>PHP:</strong> You can pass a variable number of arguments using <code>...</code>.</p>
         <pre><code>function sum(...$numbers) {
     return array_sum($numbers);
@@ -144,6 +151,8 @@ print(sum_all(1, 2, 3, 4))  // Output: 10
 
     <div class="content-box">
         <h2>PHP is a Loosely Typed Language</h2>
+        <p>ภาษา PHP เป็นภาษาที่ไม่ต้องกำหนดประเภทของตัวแปร ซึ่งหมายความว่าตัวแปรสามารถเปลี่ยนประเภทได้ตามค่าใหม่ที่กำหนดให้ โดยไม่ต้องประกาศประเภทให้ชัดเจนก่อน</p>
+        
         <p><strong>PHP:</strong> In PHP, you do not need to declare the type of variables, and they can change types dynamically.</p>
         <pre><code>$variable = 5;        // Integer
 $variable = "Hello";  // String
@@ -169,6 +178,8 @@ print(num)  // Output: Hello
 
     <div class="content-box">
         <h2>PHP Return Type Declarations</h2>
+        <p>การประกาศประเภทการคืนค่าช่วยให้เราสามารถกำหนดประเภทค่าที่ฟังก์ชันจะคืนกลับได้ โดยช่วยให้โค้ดมีความชัดเจนและลดข้อผิดพลาดในระหว่างการทำงาน</p>
+        
         <p><strong>PHP:</strong> Since PHP 7.0, you can declare return types in function definitions.</p>
         <pre><code>function addNumbers(int $a, int $b): int {
     return $a + $b;
