@@ -111,11 +111,17 @@ print(add_five(original))  // Output: 15
     <p><strong>PHP:</strong> สามารถรับจำนวนพารามิเตอร์ที่แปรผันโดยใช้ <code>"..."</code></p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>function sum(...$numbers) {
-    return array_sum($numbers);
+        <pre><code>function sumMyNumbers(...$x) {
+  $n = 0;
+  $len = count($x);
+  for($i = 0; $i < $len; $i++) {
+    $n += $x[$i];
+  }
+  return $n;
 }
 
-echo sum(1, 2, 3, 4);  // Output: 10
+$a = sumMyNumbers(5, 2, 6, 2, 7, 7);
+echo $a;
         </code></pre>
     </div>
     
