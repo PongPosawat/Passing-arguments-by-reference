@@ -46,7 +46,7 @@
     <h2>Passing Arguments by Reference</h2>
     <p>การส่งพารามิเตอร์โดยการอ้างอิงช่วยให้ฟังก์ชันสามารถเข้าถึงและแก้ไขค่าของตัวแปรที่ส่งเข้าไปได้</p>
     
-    <p><strong>PHP:</strong> สามารถส่งพารามิเตอร์ในการ Reference ได้โดยใช้สัญลักษณ์ <code>"&"</code> ตอนประกาศพารามิเตอร์</p>
+    <p><strong>PHP:</strong> สามารถส่งพารามิเตอร์ในการ passed by reference ได้โดยใช้สัญลักษณ์ <code>"&"</code> ตอนประกาศพารามิเตอร์</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>function addFive(&$num) {
@@ -251,7 +251,7 @@ int main() {
         </code></pre>
     </div>
 
-    <p><strong>Python:</strong> ประกาศประเภทค่าที่คืนได้ด้วย <code>-></code></p>
+    <p><strong>Python:</strong> ประกาศประเภทค่าที่คืนได้ด้วย <code>"->"</code></p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>def add(a: int, b: int) -> int:
