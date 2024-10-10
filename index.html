@@ -103,6 +103,8 @@ print(add_five(original))  // Output: 15
         </code></pre>
     </div>
 
+    <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
+
     <h2>Variable Number of Arguments</h2>
     <p>สนับสนุนจำนวนพารามิเตอร์ที่แปรผันช่วยให้ฟังก์ชันมีความยืดหยุ่นมากขึ้น</p>
     
@@ -167,6 +169,8 @@ print(sum_all(1, 2, 3, 4))  // Output: 10
         </code></pre>
     </div>
 
+    <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
+
     <h2>PHP is a Loosely Typed Language</h2>
     <p>PHP เป็นภาษาที่มีการกำหนดประเภทที่หลวม หมายความว่าตัวแปรไม่ต้องถูกประกาศด้วยประเภทและสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
     
@@ -204,13 +208,15 @@ print(num)  // Output: Hello
         </code></pre>
     </div>
 
+    <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
+
     <h2>PHP Return Type Declarations</h2>
     <p>การประกาศประเภทค่าที่คืนช่วยให้แน่ใจว่าฟังก์ชันคืนค่าประเภทที่ถูกต้อง</p>
 
-    <p><strong>PHP:</strong> ใช้เพื่อระบุประเภทของค่าที่ฟังก์ชันคืนค่า</p>
+    <p><strong>PHP:</strong> ใช้เพื่อระบุประเภทของค่าที่ฟังก์ชันจะคืนค่า</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>function add($a, $b): int {
+        <pre><code>function add(int $a, int $b): int {
     return $a + $b;
 }
 
@@ -218,7 +224,7 @@ echo add(5, 10);  // Output: 15
         </code></pre>
     </div>
 
-    <p><strong>Java:</strong> ประกาศประเภทค่าที่คืนในฟังก์ชัน</p>
+    <p><strong>Java:</strong> มีการประกาศประเภทค่าที่คืนโดยใช้ชื่อประเภทก่อนหน้าชื่อฟังก์ชัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>public static int add(int a, int b) {
@@ -231,7 +237,7 @@ public static void main(String[] args) {
         </code></pre>
     </div>
 
-    <p><strong>C:</strong> ประกาศประเภทค่าที่คืนในฟังก์ชัน</p>
+    <p><strong>C:</strong> ต้องระบุประเภทค่าที่คืนในฟังก์ชัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>int add(int a, int b) {
@@ -245,13 +251,13 @@ int main() {
         </code></pre>
     </div>
 
-    <p><strong>Python:</strong> สามารถระบุประเภทค่าที่คืน แต่ไม่บังคับ</p>
+    <p><strong>Python:</strong> ประกาศประเภทค่าที่คืนได้ด้วย <code>-></code></p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
         <pre><code>def add(a: int, b: int) -> int:
     return a + b
 
-print(add(5, 10))  // Output: 15
+print(add(5, 10))  # Output: 15
         </code></pre>
     </div>
 
