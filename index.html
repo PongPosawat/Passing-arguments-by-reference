@@ -49,68 +49,116 @@
     <p><strong>PHP:</strong> สามารถส่งพารามิเตอร์ในการ passed by reference ได้โดยใช้สัญลักษณ์ <code>"&"</code> ตอนประกาศพารามิเตอร์</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>function addFive(&$num) {
-    $num += 5;
+        <pre><code>&lt;?php
+
+function foo(&$var)
+{
+    $var++;
 }
 
-$original = 10;
-addFive($original);
-echo $original;  // Output: 15
+$a = 5;
+
+foo($a);
+// $a is 6 here
+
+?>
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Java:</strong> ส่งพารามิเตอร์ด้วย passed by reference จะใช้ได้เฉพาะกับ Object แต่ primitive type ส่งจะต้องใช้แบบ passed by value แทน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>public class Example {
-    public static void addFive(int num) {
-        num += 5;
-    }
+        <pre><code>
+import java.io.*;
 
-    public static void main(String[] args) {
-        int original = 10;
-        addFive(original);
-        System.out.println(original);  // Output: 10
-    }
+class GFG {
+static int sum(int a,int b) // Formal parameters
+{ 
+return a+b; 
 }
+	public static void main (String[] args) {
+	int a=5;
+	int b=10;
+	
+	System.out.println(sum(a,b)); //This is actual parameters
+	}
+}
+
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>C:</strong> ใช้ pointer ในการส่งพารามิเตอร์แบบ passed by reference</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>void addFive(int* num) {
-    *num += 5;
+        <pre><code>// C program to swap two numbers
+#include &lt;stdio.h>
+ 
+// function definition with relevant pointers to recieve the
+// parameters
+void swap(int* a, int* b)
+{
+    // accessing arguments like pointers
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
-
-int main() {
-    int original = 10;
-    addFive(&original);
-    printf("%d", original);  // Output: 15
+ 
+// driver code
+int main(void)
+{
+    int n1 = 5;
+    int n2 = 10;
+ 
+    // value before swapping
+    printf(" Before swapping : n1 is %d and n2 is %d\n", n1,
+           n2);
+    // calling the function by passing the address of the
+    // arguments
+    swap(&n1, &n2);
+ 
+    // value after swapping
+    printf(" After swapping : n1 is %d and n2 is %d\n", n1,
+           n2);
+   
     return 0;
-}
+} // Before swapping : n1 is 5 and n2 is 10
+ After swapping : n1 is 10 and n2 is 5
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> ส่ง Object โดยการ passed by reference และใช้ได้กับทุก data tpye</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>def add_five(num):
-    return num + 5
+        <pre><code>def call_by_value(x):
+    x = x * 2
+    print("in function value updated to", x)
+    return
 
-original = 10
-print(add_five(original))  // Output: 15
+def call_by_reference(list):
+    list.append("D")
+    print("in function list updated to", list)
+    return
+
+my_list = ["E"]
+num = 6
+print("number before=", num)
+call_by_value(num)
+print("after function num value=", num)
+print("list before",my_list)
+call_by_reference(my_list)
+print("after function list is ",my_list) // number before= 6
+                                                  in function value updated to 12
+                                                  after function num value= 6
+                                                  list before ['E']
+                                                  in function list updated to ['E', 'D']
+                                                  after function list is  ['E', 'D']
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
 
     <h2>Variable Number of Arguments</h2>
-    <p>สนับสนุนจำนวนพารามิเตอร์ที่แปรผันช่วยให้ฟังก์ชันมีความยืดหยุ่นมากขึ้น</p>
+    <p>ข้อมูลสามารถส่งผ่านไปยังฟังก์ชันได้โดยใช้ Arguments ซึ่งก็เหมือนกับตัวแปร Arguments จะถูกระบุไว้หลังชื่อฟังก์ชันภายในวงเล็บ</p>
     
     <p><strong>PHP:</strong> สามารถรับจำนวนพารามิเตอร์ที่แปรผันโดยใช้ <code>"..."</code></p>
     <div class="code-container">
@@ -125,164 +173,195 @@ print(add_five(original))  // Output: 15
 }
 
 $a = sumMyNumbers(5, 2, 6, 2, 7, 7);
-echo $a; // Output: 29
-}
+echo $a;
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
     
     <p><strong>Java:</strong> ใช้ <code>"..."</code> แบบเดียวกับ PHP</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>public static int sum(int... numbers) {
-    int sum = 0;
-    for (int num : numbers) {
-        sum += num;
+        <pre><code>// Java program to demonstrate varargs
+ 
+class Test1 {
+    // A method that takes variable 
+    // number of integer arguments.
+    static void fun(int... a)
+    {
+        System.out.println("Number of arguments: "
+                           + a.length);
+ 
+        // using for each loop to display contents of a
+        for (int i : a)
+            System.out.print(i + " ");
+        System.out.println();
     }
-    return sum;
-}
-
-public static void main(String[] args) {
-    System.out.println(sum(1, 2, 3, 4));  // Output: 10
-}
+ 
+    // Driver code
+    public static void main(String args[])
+    {
+        // Calling the varargs method with 
+        // different number of parameters
+       
+        // one parameter
+        fun(100); 
+           
+          // four parameters
+        fun(1, 2, 3, 4); 
+         
+          // no parameter
+          fun(); 
+    }
+} // Number of arguments: 1
+100 
+Number of arguments: 4
+1 2 3 4 
+Number of arguments: 0
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>C:</strong> ใช้ <code>"va_list"</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>#include &lt;stdarg.h&gt;
+        <pre><code>#include <stdio.h>
+#include &lt;stdarg.h>
 
-int sum(int count, ...) {
-    va_list args;
-    va_start(args, count);
-    int result = 0;
-    for (int i = 0; i < count; i++) {
-        result += va_arg(args, int);
-    }
-    va_end(args);
-    return result;
+double average(int num,...) {
+
+   va_list valist;
+   double sum = 0.0;
+   int i;
+
+   /* initialize valist for num number of arguments */
+   va_start(valist, num);
+
+   /* access all the arguments assigned to valist */
+   for (i = 0; i < num; i++) {
+      sum += va_arg(valist, int);
+   }
+
+   /* clean memory reserved for valist */
+   va_end(valist);
+
+   return sum/num;
 }
 
 int main() {
-    printf("%d", sum(4, 1, 2, 3, 4));  // Output: 10
-    return 0;
-}
+
+   printf("Average of 2, 3, 4, 5 = %f\n", average(4, 2,3,4,5));
+   printf("Average of 5, 10, 15 = %f\n", average(3, 5,10,15));
+} // Average of 2, 3, 4, 5 = 3.500000
+Average of 5, 10, 15 = 10.000000
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> ใช้ <code>"*args"</code> สำหรับจำนวนพารามิเตอร์ที่แปรผัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>def sum_all(*numbers):
-    return sum(numbers)
+        <pre><code>def myFun(*argv):
+    for arg in argv:
+        print(arg)
 
-print(sum_all(1, 2, 3, 4))  // Output: 10
+
+myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks') // Hello
+Welcome
+to
+GeeksforGeeks
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
 
-    <h2>PHP is a Loosely Typed Language</h2>
-    <p>PHP เป็นภาษาที่มีการกำหนดประเภทที่หลวม หมายความว่าตัวแปรไม่ต้องถูกประกาศด้วยประเภทและสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
-    
-    <p><strong>PHP:</strong> ไม่จำเป็นต้องประกาศประเภทตัวแปร และสามารถเปลี่ยนประเภทได้ตามต้องการ</p>
-    <div class="code-container">
-        <span class="example-label">Example Code:</span>
-        <pre><code>$variable = 5;        // Integer
-$variable = "Hello";  // String
-echo $variable;       // Output: Hello
-        </code></pre>
-    </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
-    
-    <p><strong>Java:</strong> Java เป็นภาษา Strong typed จึงจำเป็นต้องประกาศประเภทตัวแปร</p>
-    <div class="code-container">
-        <span class="example-label">Example Code:</span>
-        <pre><code>int num = 5;
-num = "Hello";  // Error: Type mismatch
-        </code></pre>
-    </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
-
-    <p><strong>C:</strong> C เป็นภาษาที่เป็น strong typed จึงจำเป็นต้องประกาศประเภทตัวแปร</p>
-    <div class="code-container">
-        <span class="example-label">Example Code:</span>
-        <pre><code>int num = 5;
-num = "Hello";  // Error: Type mismatch
-        </code></pre>
-    </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
-
-    <p><strong>Python:</strong> Python มีการกำหนดประเภทแบบ dynamic typed</p>
-    <div class="code-container">
-        <span class="example-label">Example Code:</span>
-        <pre><code>num = 5
-num = "Hello"
-print(num)  // Output: Hello
-        </code></pre>
-    </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
-
-    <br> <!-- เว้นบรรทัดระหว่างหัวข้อ -->
-
-    <h2>PHP Return Type Declarations</h2>
-    <p>การประกาศประเภทค่าที่คืนช่วยให้แน่ใจว่าฟังก์ชันคืนค่าประเภทที่ถูกต้อง</p>
+    <h2>Return Type Declarations</h2>
+    <p>การประกาศประเภทค่าที่คืนช่วยให้แน่ใจว่าฟังก์ชันคืนค่า type ที่ถูกต้อง</p>
 
     <p><strong>PHP:</strong> ใช้เพื่อระบุประเภทของค่าที่ฟังก์ชันจะคืนค่า</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>function add(int $a, int $b): int {
-    return $a + $b;
+        <pre><code>&lt;?php declare(strict_types=1); // strict requirement
+function addNumbers(float $a, float $b) : float {
+  return $a + $b;
 }
-
-echo add(5, 10);  // Output: 15
+echo addNumbers(1.2, 5.2);
+?>
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Java:</strong> มีการประกาศประเภทค่าที่คืนโดยใช้ชื่อประเภทก่อนหน้าชื่อฟังก์ชัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>public static int add(int a, int b) {
-    return a + b;
-}
-
-public static void main(String[] args) {
-    System.out.println(add(5, 10));  // Output: 15
-}
+        <pre><code>public class SampleReturn1   
+{  
+    /* Method with an integer return type and no arguments */  
+    public int CompareNum()   
+    {   
+        int x = 3;  
+        int y = 8;  
+        System.out.println("x = " + x + "\ny = " + y);  
+        if(x>y)  
+            return x;  
+        else  
+            return y;  
+    }  
+      
+    /* Driver Code */  
+    public static void main(String ar[])   
+    {  
+        SampleReturn1 obj = new SampleReturn1();  
+        int result = obj.CompareNum();  
+        System.out.println("The greater number among x and y is: " + result);  
+    }  
+}  // x = 3
+y = 8
+The greater number among x and y is: 8
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
-    <p><strong>C:</strong> ต้องระบุประเภทค่าที่คืนในฟังก์ชัน</p>
+    <p><strong>C:</strong> ต้องระบุ type ค่าที่คืนในฟังก์ชัน</p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>int add(int a, int b) {
-    return a + b;
-}
+        <pre><code>typedef struct
+{
+    char name[20];
+    int id;
+    long class;
+} STUDENT;
 
-int main() {
-    printf("%d", add(5, 10));  // Output: 15
-    return 0;
+/* Return type is STUDENT: */
+
+STUDENT sortstu( STUDENT a, STUDENT b )
+{
+    return ( (a.id < b.id) ? a : b );
 }
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
 
     <p><strong>Python:</strong> ประกาศประเภทค่าที่คืนได้ด้วย <code>"->"</code></p>
     <div class="code-container">
         <span class="example-label">Example Code:</span>
-        <pre><code>def add(a: int, b: int) -> int:
-    return a + b
+        <pre><code>type Vector = list[float]
 
-print(add(5, 10))  // Output: 15
+def scale(scalar: float, vector: Vector) -> Vector:
+    return [scalar * num for num in vector]
+
+# passes type checking; a list of floats qualifies as a Vector.
+new_vector = scale(2.0, [1.0, -4.2, 5.4]) 
+print(new_vector) // 2.0, -8.4, 10.8
         </code></pre>
     </div>
-    <p>อ้างอิงแหล่งที่มา :</p>
+    
+    <p><strong>Reference :</strong></p> 
+    <p><strong>php Passing Arguments by Reference  :</strong> https://www.php.net/manual/en/language.references.pass.php</p>
+    <p><strong>java Passing Arguments by Reference :</strong> https://www.geeksforgeeks.org/different-ways-to-achieve-pass-by-reference-in-java/</p>
+    <p><strong>C Passing Arguments by Reference :</strong> https://www.geeksforgeeks.org/pass-by-reference-in-c/</p>
+    <p><strong>Python Passing Arguments by Reference :</strong> https://www.geeksforgeeks.org/pass-by-reference-vs-value-in-python/</p>
+    <p><strong>php Variable Number of Arguments :</strong> https://www.w3schools.com/php/php_functions.asp</p>
+    <p><strong>java Variable Number of Arguments :</strong> https://www.geeksforgeeks.org/variable-arguments-varargs-in-java/</p>
+    <p><strong>C Variable Number of Arguments :</strong> https://www.tutorialspoint.com/cprogramming/c_variable_arguments.htm</p>
+    <p><strong>Python Variable Number of Arguments :</strong> https://www.geeksforgeeks.org/args-kwargs-python/</p>
+    <p><strong>php Return Type Declarations :</strong> https://www.w3schools.com/php/php_functions.asp</p>
+    <p><strong>java Return Type Declarations :</strong> https://www.javatpoint.com/return-statement-in-java</p>
+    <p><strong>C Return Type Declarations :</strong> https://learn.microsoft.com/th-th/cpp/c-language/return-type?view=msvc-170</p>
+    <p><strong>Python Return Type Declarations :</strong> https://docs.python.org/3/library/typing.html</p>
 
 </body>
 </html>
